@@ -23,3 +23,15 @@ def plot_decision_boundary(epoch, perceptron, errors, X, y):
     plt.ylabel('Erreur totale')
     plt.tight_layout()
     plt.pause(0.1)
+
+def plot_weights_evolution(perceptron):
+    plt.figure(figsize=(10, 5))
+    weights = np.array(perceptron.weights_history)
+    for i in range(weights.shape[1]):
+        plt.plot(weights[:, i], label=f'Poids {i + 1}')
+    plt.xlabel('Époque')
+    plt.ylabel('Valeur des poids')
+    plt.title('Évolution des poids du perceptron')
+    plt.legend()
+    plt.grid()
+    plt.show()

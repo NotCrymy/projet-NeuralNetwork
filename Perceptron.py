@@ -15,6 +15,7 @@ class Perceptron:
 
     def train(self, X, y, epochs, callback=None):
         errors = []
+        self.weights_history = []  # Pour stocker l'évolution des poids
         for epoch in range(epochs):
             total_error = 0
             for xi, yi in zip(X, y):
@@ -24,5 +25,6 @@ class Perceptron:
                 self.bias += update
                 total_error += abs(yi - y_pred)
             errors.append(total_error)
+            self.weights_history.append(self.weights.copy())  # Stocke une copie des poids actuels
             if callback:
                 callback(epoch, self, errors)
