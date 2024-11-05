@@ -12,14 +12,14 @@ def callback(epoch, perceptron_instance, errors):
 X, y = make_moons(n_samples=200, noise=0.2, random_state=42)
 
 # Initialisation du perceptron avec différentes valeurs de learning_rate
-learning_rates = [0.001]
+learning_rates = [0.1]
 
 for lr in learning_rates:
     print(f"Training with learning_rate = {lr}")
     perceptron = Perceptron(n_inputs=2, learning_rate=lr)
     
     plt.ion()  # Active le mode interactif de matplotlib
-    perceptron.train(X, y, epochs=10, callback=callback)
+    perceptron.train(X, y, epochs=85, callback=callback)
 
     # Tracer l'évolution des poids après l'entraînement
     plot_weights_evolution(perceptron)
