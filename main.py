@@ -1,7 +1,7 @@
 from sklearn.datasets import make_moons
 import numpy as np
 import matplotlib.pyplot as plt
-from perceptron import Perceptron
+from Perceptron import Perceptron
 from visualization import plot_decision_boundary, plot_weights_evolution
 
 # Fonction de callback pour la visualisation
@@ -19,7 +19,7 @@ for lr in learning_rates:
     perceptron = Perceptron(n_inputs=2, learning_rate=lr)
     
     plt.ion()  # Active le mode interactif de matplotlib
-    perceptron.train(X, y, epochs=85, callback=callback)
+    perceptron.train(X, y, epochs=400, callback=callback)
 
     # Tracer l'évolution des poids après l'entraînement
     plot_weights_evolution(perceptron)
