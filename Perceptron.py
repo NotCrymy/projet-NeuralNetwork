@@ -24,7 +24,16 @@ class Perceptron:
                 self.weights += update * xi
                 self.bias += update
                 total_error += abs(yi - y_pred)
+            
+            # Enregistrer les erreurs et l'évolution des poids
             errors.append(total_error)
             self.weights_history.append(self.weights.copy())  # Stocke une copie des poids actuels
+            
+            # Appel du callback s'il existe
             if callback:
                 callback(epoch, self, errors)
+            
+            # Vérifier si l'erreur totale est inférieure à 40
+            if total_error < 40:
+                print(f"Entraînement arrêté à l'époque {epoch+1} avec une erreur totale de {total_error}.")
+                break

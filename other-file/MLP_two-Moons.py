@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 X, y = make_moons(n_samples=200, noise=0.2, random_state=42)
 
 # Initialisation et entraînement du perceptron multi-couches (MLP) avec des paramètres ajustés
-mlp = MLPClassifier(hidden_layer_sizes=(100, 10, 100), max_iter=1000, learning_rate_init=0.01, tol=1e-6, random_state=42)
+mlp = MLPClassifier(hidden_layer_sizes=(100, 100), max_iter=1000, learning_rate_init=0.1, tol=1e-6, random_state=42)
 mlp.fit(X, y)
 
 # Visualisation de la frontière de décision
